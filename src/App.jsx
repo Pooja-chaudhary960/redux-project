@@ -1,14 +1,26 @@
-import React from 'react'
-import './App.css'
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import CartDrawer from "./components/CartDrawer";
+import Home from "./pages/Home";
+import Cart from "./pages/Cart";
+import Admin from "./pages/Admin";
+import Wishlist from "./pages/Wishlist";
 
-function App() {
-
-
+const App = () => {
   return (
-    <>
-     <div><h1 class="text-3xl font-bold text-blue-600">Hello World!</h1></div>
-    </>
-  )
-}
+    <div className="min-h-screen bg-stone-50">
+      <Navbar />
+      <CartDrawer />
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/wishlist" element={<Wishlist />} />
+        </Routes>
+      </main>
+    </div>
+  );
+};
 
-export default App
+export default App;
